@@ -47,9 +47,9 @@ const turns = [
 namespace ww {
 
     /**
-     * 神奇女俠往【方向】移動【數目】格數
+     * Move Wonder Woman n spaces in the d direction
      */
-    //% block="往 %d 移動 %n 格數"
+    //% block="Move %d by %n"
     export function moveWW(d: Direction, n: number): void {
         for (let i = 0; i < n; i++){
             if(shouldStop()) return;
@@ -61,9 +61,9 @@ namespace ww {
     }
 
     /**
-     * 神奇女俠往【方向】轉動
+     * Turn Wonder Woman in the t direction
      */
-    //% block="往 %t 轉動"
+    //% block="Turn %t"
     export function turnWW(t: TurnDirection): void {
         if(shouldStop()) return;
 
@@ -73,12 +73,12 @@ namespace ww {
     }  
 
     /**
-     * 往【方向】放置【顏色】玻璃
+     * Place block in the d direction
      * @param block the block
      */    
-    //% block="往 %d 放置 %block"
-    export function placeBlock(block: BeamsGlass, d: Direction): void {
-        if(shouldStop2()) return;
+    //% block="Place %block %d"
+    export function placeBlock(d: Direction, block: BeamsGlass): void {
+        if(shouldStop()) return;
 
         agent.setItem(block, 1, 1)
         agent.setSlot(1)
@@ -89,9 +89,9 @@ namespace ww {
     }  
 
     /**
-     * 檢查畫作隱藏有否於【方向】的箱子
+     * Inspect in the d direction for the painting
      */
-    //% block="畫作隱藏於 %d 箱子"
+    //% block="painting inside crate %d"
     export function locatePainting(d: Direction): boolean {
         if(shouldStop()) return false;
 
@@ -103,9 +103,9 @@ namespace ww {
     }
 
     /**
-     * 打破【方向】的箱子
+     * Break the block in the d direction
      */
-    //% block="打破 %d 箱子"
+    //% block="Break crate %d"
     export function retrievePainting(d: Direction): void {
         if(shouldStop()) return;
 
@@ -115,9 +115,9 @@ namespace ww {
     }    
 
     /**
-     * 檢查【方向】的參加者是否小偷
+     * Inspect in the d direction for Goon
      */
-    //% block="%d 參加者是否小偷"
+    //% block="attendee is the thief %d"
     export function locateGoon(d: Direction): boolean {
         if(shouldStop()) return false;
 
@@ -129,9 +129,9 @@ namespace ww {
     }
 
     /**
-     * 套索【方向】的小偷
+     * Inspect in the d direction for GOLD_BLOCK
      */
-    //% block="真言套索 %d 小偷"
+    //% block="Lasso thief %d"
     export function apprehendGoon(d: Direction): void {
         if(shouldStop()) return;
 
@@ -141,9 +141,9 @@ namespace ww {
     }
 
     /**
-     * 打倒【方向】的小偷
+     * Inspect in the d direction for GOLD_BLOCK
      */
-    //% block="打倒 %d 小偷"
+    //% block="Takedown criminal %d"
     export function takedownGoon(d: Direction): void {
         if(shouldStop()) return;
 
@@ -156,9 +156,4 @@ namespace ww {
     function shouldStop(): boolean {
         return blocks.testForBlock(stopBlock, stopPosition);
     }
-
-        // helper functions
-        function shouldStop2(): boolean {
-            return blocks.testForBlock(stopPosition, stopBlock);
-        }
 }
