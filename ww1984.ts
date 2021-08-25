@@ -77,7 +77,7 @@ namespace ww {
      * @param block the block
      */    
     //% block="往 %d 放置 %block"
-    export function placeBlock(d: Direction, block: BeamsGlass): void {
+    export function placeBlock(block: BeamsGlass, d: Direction): void {
         if(shouldStop2()) return;
 
         agent.setItem(block, 1, 1)
