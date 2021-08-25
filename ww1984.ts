@@ -78,7 +78,7 @@ namespace ww {
      */    
     //% block="往 %d 放置 %block"
     export function placeBlock(d: Direction, block: BeamsGlass): void {
-        if(shouldStop()) return;
+        if(shouldStop2()) return;
 
         agent.setItem(block, 1, 1)
         agent.setSlot(1)
@@ -156,4 +156,9 @@ namespace ww {
     function shouldStop(): boolean {
         return blocks.testForBlock(stopBlock, stopPosition);
     }
+
+        // helper functions
+        function shouldStop2(): boolean {
+            return blocks.testForBlock(stopPosition, stopBlock);
+        }
 }
