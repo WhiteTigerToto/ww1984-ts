@@ -47,7 +47,7 @@ const turns = [
 namespace ww {
 
     /**
-     * Move Wonder Woman n spaces in the d direction
+     * 神奇女俠往【方向】移動【數目】格數
      */
     //% block="往 %d 移動 %n 格數"
     export function moveWW(d: Direction, n: number): void {
@@ -61,7 +61,7 @@ namespace ww {
     }
 
     /**
-     * Turn Wonder Woman in the t direction
+     * 神奇女俠往【方向】轉動
      */
     //% block="往 %t 轉動"
     export function turnWW(t: TurnDirection): void {
@@ -73,11 +73,11 @@ namespace ww {
     }  
 
     /**
-     * Place block in the d direction
+     * 往【方向】放置【顏色】玻璃
      * @param block the block
      */    
     //% block="往 %d 放置 %block"
-    export function placeBlock(block: BeamsGlass, d: Direction): void {
+    export function placeBlock(d: Direction, block: BeamsGlass): void {
         if(shouldStop()) return;
 
         agent.setItem(block, 1, 1)
@@ -89,7 +89,7 @@ namespace ww {
     }  
 
     /**
-     * Inspect in the d direction for the painting
+     * 檢查畫作隱藏有否於【方向】的箱子
      */
     //% block="畫作隱藏於 %d 箱子"
     export function locatePainting(d: Direction): boolean {
@@ -103,7 +103,7 @@ namespace ww {
     }
 
     /**
-     * Break the block in the d direction
+     * 打破【方向】的箱子
      */
     //% block="打破 %d 箱子"
     export function retrievePainting(d: Direction): void {
@@ -115,9 +115,9 @@ namespace ww {
     }    
 
     /**
-     * Inspect in the d direction for Goon
+     * 檢查【方向】的參加者是否小偷
      */
-    //% block="%d 參加者是不是小偷"
+    //% block="%d 參加者是否小偷"
     export function locateGoon(d: Direction): boolean {
         if(shouldStop()) return false;
 
@@ -129,7 +129,7 @@ namespace ww {
     }
 
     /**
-     * Inspect in the d direction for GOLD_BLOCK
+     * 套索【方向】的小偷
      */
     //% block="真言套索 %d 小偷"
     export function apprehendGoon(d: Direction): void {
@@ -141,7 +141,7 @@ namespace ww {
     }
 
     /**
-     * Inspect in the d direction for GOLD_BLOCK
+     * 打倒【方向】的小偷
      */
     //% block="打倒 %d 小偷"
     export function takedownGoon(d: Direction): void {
