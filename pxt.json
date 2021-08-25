@@ -7,8 +7,7 @@
     },
     "files": [
         "README.md",
-        "ww1984.ts",
-        "en_ww1984.ts"
+        "ww1984.ts"
 
     ],
     "supportedTargets": [
